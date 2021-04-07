@@ -7,7 +7,7 @@ services:
     volumes:
       - archelp_data:/var/www/html/storage/app
     extra_hosts:
-      - "database:172.19.0.3"
+      - "database:172.17.0.4"
     environment:
       - APP_KEY=${APP_KEY}
       - DB_DATABASE=${DB_DATABASE}
@@ -24,8 +24,8 @@ services:
       - DB_HOST=database
     tty: true
     networks:
-      main:
-        ipv4_address: 172.19.0.5
+      default:
+        ipv4_address: 172.17.0.5
       archelp:
   redis:
     image: redis
@@ -34,9 +34,9 @@ services:
 
 networks:
   archelp:
-  main:
+  default:
     external: true
-    name: main_bridge
+    name: bridge
 
 volumes:
   archelp_data:
