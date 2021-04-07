@@ -22,6 +22,8 @@ services:
       - REDIS_HOST=redis
       - DB_HOST=database
     tty: true
+    ports:
+    - 80:80
     networks:
       default:
       archelp:
