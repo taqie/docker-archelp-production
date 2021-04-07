@@ -22,13 +22,9 @@ services:
       - REDIS_HOST=redis
       - DB_HOST=database
     tty: true
-    ports:
-    - 80:80
     networks:
       default:
       archelp:
-      archelp_bridge:
-        - ipv4_address: 172.18.0.100
   redis:
     image: redis
     networks:
@@ -36,9 +32,6 @@ services:
 
 networks:
   archelp:
-  archelp_bridge:
-    external: true
-    name: docker_gwbridge
   default:
     external: true
     name: intranet
