@@ -25,6 +25,7 @@ services:
     networks:
       default:
       archelp:
+      archelp_def:
   redis:
     image: redis
     networks:
@@ -32,6 +33,9 @@ services:
 
 networks:
   archelp:
+  archelp_def:
+    external: true
+    name: docker_gwbridge
   default:
     external: true
     name: intranet
