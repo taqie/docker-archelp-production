@@ -6,8 +6,6 @@ services:
     restart: always
     volumes:
       - archelp_data:/var/www/html/storage/app
-    extra_hosts:
-      - "database:172.17.0.4"
     environment:
       - APP_KEY=${APP_KEY}
       - DB_DATABASE=${DB_DATABASE}
@@ -23,9 +21,10 @@ services:
       - REDIS_HOST=redis
       - DB_HOST=database
     tty: true
+    external_links:
+      - database:database
     networks:
       default:
-        ipv4_address: 172.17.0.5
       archelp:
   redis:
     image: redis
